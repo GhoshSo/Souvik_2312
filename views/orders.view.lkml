@@ -69,6 +69,11 @@ view: orders {
     sql: ${TABLE}.status ;;
   }
 
+  dimension: status_gender {
+    type: string
+    sql: concat(${status}, "-", ${gender}) ;;
+  }
+
   dimension: user_id {
     type: number
     # hidden: yes

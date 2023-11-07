@@ -66,7 +66,9 @@ view: order_items {
 
   measure: total_sale_price {
     type: sum
-    sql: ${sale_price} ;;  }
+    sql: ${sale_price} ;;
+    value_format: "0.00"
+    }
   measure: average_sale_price {
     type: average
     sql: ${sale_price} ;;  }
@@ -93,6 +95,7 @@ view: order_items {
   measure: count {
     type: count
     drill_fields: [detail*]
+    #filters: [created_date: "yesterday", status: "-NULL"]
   }
 
   # ----- Sets of fields for drilling ------
