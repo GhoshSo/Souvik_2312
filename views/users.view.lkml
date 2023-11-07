@@ -107,6 +107,23 @@ view: users {
     drill_fields: [detail*]
   }
 
+  measure: sum_user_id {
+    type: sum_distinct
+    value_format: "0.0"
+    sql: ${id}* 1.0 ;;
+  }
+
+  measure: total_names_count {
+    type: count_distinct
+    sql: ${first_name} ;;
+  }
+
+  measure: simone_test {
+    type: number
+    value_format: "0.00%"
+    sql: ${sum_user_id}/NUllIF(${total_names_count},0) ;;
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
