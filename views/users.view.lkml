@@ -84,6 +84,7 @@ view: users {
 
   dimension: postal_code {
     type: string
+    map_layer_name:us_zipcode_tabulation_areas
     sql: ${TABLE}.postal_code ;;
   }
 
@@ -109,13 +110,13 @@ view: users {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	last_name,
-	first_name,
-	events.count,
-	order_items.count,
-	orders.count
-	]
+  id,
+  last_name,
+  first_name,
+  events.count,
+  order_items.count,
+  orders.count
+  ]
   }
 
 }
